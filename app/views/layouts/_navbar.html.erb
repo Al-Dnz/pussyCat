@@ -76,8 +76,9 @@
            <!-- Account-->
            <li class="nav-item dropdown-toggle"><a class="nav-link text-accent" href="account-orders.html">Account</a>
              <ul class="dropdown-menu">
-               <li class="dropdown-item"><a href="account-login.html">Login / Register</a></li>
-               <li class="dropdown-item"><a href="account-password-recovery.html">Password Recovery</a></li>
+               <li class="dropdown-item"><%= link_to "Login / Register", new_user_session_path %></li>
+               <li class="dropdown-item"><%= link_to "Password Recovery", new_user_password_path %></li>
+
                <li class="dropdown-item"><a href="account-orders.html">Orders List</a></li>
                <li class="dropdown-item"><a href="account-profile.html">Profile Settings</a></li>
                <li class="dropdown-item"><a href="account-address.html">Contact / Shipping Address</a></li>
