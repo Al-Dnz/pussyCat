@@ -1,23 +1,15 @@
-<%item = @items.find(params[:id])%>
-  <h2>
-    <%= item.title %>
-  </h2>
-  <br>
+<p>/TEST /  Ceci est la page d'affichage SHOW d'une item /TEST/</p>
 
-  <h3>
-    <%= item.description %>
-  </h3>
-  <br>
+<% item = @items.find(params[:id])%>
 
-  <h3>
-    <%= item.price %>
-  </h3>
-  <br>
-
-  <img src="<%=item.image_url %>" alt="Cat_Picture">
-  <br>
-
-  <a href="#">
-    BUY
-  </a>
-<% end %>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%= item.image_url %>" alt="Cat_Picture" image="image" cap"="cap"">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= item.title %>
+    </h5>
+    <p class="card-text"><%= item.description %></p>
+    <p class="card-text"><%= item.price %></p>
+    <a href="#" class="btn btn-primary"> Buy </a>
+  </div>
+</div>
