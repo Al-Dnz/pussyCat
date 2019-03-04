@@ -12,7 +12,26 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
- *= require_self
  *= require theme
  *= require vendor.min
+ *= require_self
+
  */
+
+
+
+// effect under each card
+
+ .card::after {
+   display: block;
+   position: absolute;
+   bottom: -.625rem;
+   left: 1.25rem;
+   width: calc(100% - 2.5rem);
+   height: 2.1875rem;
+   background-color: #ffffff;
+   -webkit-box-shadow: 0 1.1875rem 1.75rem 0.3125rem rgba(64, 64, 64, 0.09);
+   box-shadow: 0 1.1875rem 1.75rem 0.3125rem #ffe7e7;
+   content: '';
+   z-index: -1;
+ }
