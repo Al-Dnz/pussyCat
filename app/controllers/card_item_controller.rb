@@ -1,4 +1,4 @@
-class CardItemController < ApplicationController
+class CartItemController < ApplicationController
   def new
   end
 end
