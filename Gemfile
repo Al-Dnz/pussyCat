@@ -32,7 +32,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 #back
-gem 'faker' # => db/seed generator
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+ # => db/seed generator
 gem 'table_print' # => console table
 gem 'devise' # => user gestion
 gem 'stripe' # => payment online
