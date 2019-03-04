@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'card_item/new'
+  get 'card/show'
   devise_for :users
   resources :item , only: [:index , :show, :destroy]
 
