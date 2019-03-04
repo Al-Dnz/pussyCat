@@ -1,18 +1,31 @@
-<p>/TEST /  Ceci est la page d'affichage SHOW de l'item <%=params[:id] %> /TEST/</p>
 <br>
 
 <% if @items.exists?(params[:id])%>
 <% item = @items.find(params[:id])%>
 
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="<%= item.image_url %>" alt="Cat_Picture" image="image" cap"="cap"">
-  <div class="card-body">
-    <h5 class="card-title">
-      <%= item.title %>
-    </h5>
-    <p class="card-text"><%= item.description %></p>
-    <p class="card-text"><%= item.price %>  €</p>
-    <a href="#" class="btn btn-primary"> Buy </a>
+
+
+<div class="container mb-2">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="product-gallery">
+        <span class="badge badge-accent text-md font-weight-normal">New</span>
+        <img class="card-img-top" src="<%= item.image_url %>" alt="Cat_Picture" image="image" cap="cap"><br><br>
+      </div>
+    </div>
+    <div class="col-md-6 pb-5">
+      <br><br>
+      <div class="product-meta"><a href="#">Cat picture</a></div>
+      <h2 class="font-weight-bold">Buy picture from <%= item.title %></h2>
+      <h3 class="font-weight-light"><%= item.price %>€</h3>
+      <p><strong>"<%= item.description %>"</strong></p>
+      <p class="text-muted">Once you add this picture to your cart and validate your order, you will receive your cute cat picture by mail under a very short time.</p>
+      <p class="text-muted">All of our cat picture are certificated 100% cute. All of our cats pictured on these pic are very well traited and get a lot of hugs and kisses.</p>
+      <br>
+      <a href="#" class="btn btn-gradient btn-block m-0"> add to cart </a>
+    </div>
   </div>
+  <a href="<%= root_path %>">Back to product page</a>
 </div>
+
 <%end%>

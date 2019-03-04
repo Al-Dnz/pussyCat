@@ -10,10 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-<<<<<<< HEAD
-//= require jquery3
-=======
->>>>>>> db2803495c02ce34b94bc8a48c574b346228de49
 //= require card.min
 //= require modernizr.min
 //= require theme.min
