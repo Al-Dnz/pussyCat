@@ -1,0 +1,23 @@
+<%item = @items.find(params[:id])%>
+  <h2>
+    <%= item.title %>
+  </h2>
+  <br>
+
+  <h3>
+    <%= item.description %>
+  </h3>
+  <br>
+
+  <h3>
+    <%= item.price %>
+  </h3>
+  <br>
+
+  <img src="<%=item.image_url %>" alt="Cat_Picture">
+  <br>
+
+  <a href="#">
+    BUY
+  </a>
+<% end %>

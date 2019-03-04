@@ -1,0 +1,25 @@
+<% @items.each do |item|%>
+
+  <h3>
+    <%= item.title %>
+  </h3>
+  <br>
+
+  <h4>
+    <%= item.description %>
+  </h4>
+  <br>
+
+  <h4>
+    <%= item.price %>
+  </h4>
+  <br>
+
+  <img src="<%=item.image_url %>" alt="Cat_Picture">
+  <br>
+
+  <a href="#">
+    BUY
+  </a>
+
+<%end%>
