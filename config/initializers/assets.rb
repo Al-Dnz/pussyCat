@@ -12,6 +12,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # => access for template
 Rails.application.config.assets.paths << Rails.root.join('lib')
 Rails.application.config.assets.paths << Rails.root.join('vendor')
+Rails.application.config.assets.paths << Rails.root.join("app/assets/templates")
+
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
