@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 
 #front
-gem 'bootstrap', '~> 4.1.1'
+# gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 #back
@@ -54,7 +54,7 @@ group :development, :test do
 
   gem "factory_bot_rails", "~> 4.0"
   gem 'rspec-rails', '~> 3.7'
-   
+
 end
 
 group :development do

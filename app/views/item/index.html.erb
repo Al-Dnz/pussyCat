@@ -1,65 +1,22 @@
 
-<% @items.each do |item|%>
+
+<div class="card-group mb-30">
+
+    <% @items.each do |item|%>
 
 
-<!-- Card Top Image -->
-<div class="card text-center">
-<%# <img class="card-img-top" src="<%=item.image_url %>" alt="Cat_Picture" image="image" cap"="cap""> %>
-  <div class="card-body">
-    <h4 class="card-title"><a href="<%= item_path(item.id) %>"><%= item.title %></a></h4>
-    <p class="card-text"><%= item.description %></p>
-    <a class="btn btn-sm btn-gradient mt-2" href="#"><%= item.price %></a>
+    <!-- Card -->
+    <div class="card ">
+      <img src="<%= item.image_url %>" alt="Card image" style="">
+      <div class="card-body">
+        <h4 class="card-title"><a href="<%= item_path(item.id) %>"><%= item.title %></a></h4>
+        <p class="card-text"><%= item.description %></p>
+      </div>
+      <div class="card-footer text-muted text-sm">
+        <span class="opacity-75"><%= item.price %></span>
+      </div>
+    </div>
+
+      <%end%>
+
   </div>
-</div>
-
-
-<%end%>
-
-
-<!-- Cards Layout: Deck -->
-<div class="card-deck">
-
-  <!-- Card -->
-  <div class="card mb-30">
-    <img src="path-to-image" alt="Card image">
-    <div class="card-body">
-      <h4 class="card-title">Card title here</h4>
-      <p class="card-text">This is a wider card with...</p>
-    </div>
-    <div class="card-footer text-muted text-sm">
-      <span class="opacity-75">Last updated 3 mins ago</span>
-    </div>
-  </div>
-
-  <!-- Card -->
-  <div class="card mb-30">
-    <img src="path-to-image" alt="Card image">
-    <div class="card-body">
-      <h4 class="card-title">Card title here</h4>
-      <p class="card-text">This card has supporting..</p>
-    </div>
-    <div class="card-footer text-muted text-sm">
-      <span class="opacity-75">Last updated 3 mins ago</span>
-    </div>
-  </div>
-
-  <!-- Card -->
-  <div class="card mb-30">
-    <img src="path-to-image" alt="Card image">
-    <div class="card-body">
-      <h4 class="card-title">Card title here</h4>
-      <p class="card-text">This is a wider card...</p>
-    </div>
-    <div class="card-footer text-muted text-sm">
-      <span class="opacity-75">Last updated 3 mins ago</span>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- Typography: Displays 1 - 4 -->
-<h2 class="display-1">Display 1</h2>
-<h2 class="display-2">Display 2</h2>
-<h2 class="display-3">Display 3</h2>
-<h2 class="display-4">Display 4</h2>
