@@ -1,22 +1,25 @@
+<div class="container">
 
 
-<div class="card-group mb-30">
 
-    <% @items.each do |item|%>
+  <div class="card-columns">
+
+      <% @items.each do |item|%>
 
 
-    <!-- Card -->
-    <div class="card ">
-      <img src="<%= item.image_url %>" alt="Card image" style="">
-      <div class="card-body">
-        <h4 class="card-title"><a href="<%= item_path(item.id) %>"><%= item.title %></a></h4>
-        <p class="card-text"><%= item.description %></p>
+      <!-- Card -->
+      <div class="card  mb-30">
+        <img src="<%= item.image_url %>" alt="Card image" style="">
+        <div class="card-body">
+          <h4 class="card-title"><a href="<%= item_path(item.id) %>"><%= item.title %></a></h4>
+          <p class="card-text"><%= item.description %></p>
+        </div>
+        <div class="card-footer text-muted text-sm">
+          <span class="opacity-75"><%= item.price %></span>
+        </div>
       </div>
-      <div class="card-footer text-muted text-sm">
-        <span class="opacity-75"><%= item.price %></span>
-      </div>
+
+        <%end%>
+
     </div>
-
-      <%end%>
-
   </div>
