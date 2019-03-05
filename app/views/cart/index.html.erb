@@ -1,5 +1,9 @@
-<p> Ceci est la page d'affichage de PANIER ID : <%= @cart.id %> </p>
+<h2>Votre Panier</h2>
 
+<% if @items.count == 0 %>
+<h2>Votre panier est vide</h2>
+
+<% else %>
 
   <% @items.each do |item| %>
     <img src="<%=item.image_url%>" alt="images de chat">
@@ -10,9 +14,8 @@
     <br>
     <%=  item.price %> €
     <br>
-    <%= cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
-    <br>
-    <%= cart_item.id%>
+    <% cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
+
     <%= link_to "Remove", cart_item_path(cart_item.id), method: :delete %>
     <br>
 
@@ -20,3 +23,5 @@
   <% end %>
 
   <h3> TOTAL = <%= @total %> €</h3>
+
+<% end %>
