@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :cart_item
-  get 'card/show'
+
   devise_for :users
   resources :item , only: [:index , :show, :destroy]
+  resources :cart , only: [:index , :show, :destroy ,:create]
+  resources :cart_item , only: [:show, :destroy]
+
+
 
   root 'item#index'
 
