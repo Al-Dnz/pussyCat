@@ -10,5 +10,9 @@ class User < ApplicationRecord
 
   def create_cart
     cart = Cart.create(user_id: self.id)
+    if cart.id == nil
+      errors.add(:create_cart, "oh oh something wrong")
+    end 
   end
+
 end
