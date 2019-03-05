@@ -1,7 +1,7 @@
 class CartItemController < ApplicationController
 
   def show
-  	@cart_item = CartItem.new(item_id: params[:id], cart_id: 1)
+  	@cart_item = CartItem.new(item_id: params[:id], cart_id: current_user.cart.id)
   	if @cart_item.save
   		flash[:notice] = "add cart successfully"
    		redirect_to :item
