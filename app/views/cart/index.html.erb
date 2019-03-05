@@ -24,6 +24,29 @@
 
   <h3> TOTAL = <%= @total %> €</h3>
   <br>
-  <a href="<%= order_index_path %>" data-method="POST">PASSER LA COMMANDE</a>
+
+<a href="<%= order_index_path %>" data-method="POST">PASSER LA COMMANDE</a>
+
+
+
+<%= form_tag order_index_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+    <p>If you want to join the event, please pay the amount of <%= @total %> € below :</p>
+  </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Your order"
+          data-amount="<%= @total * 100 %>"
+          data-currency="eur"
+          data-locale="auto"></script>
+<% end %>
 
 <% end %>
