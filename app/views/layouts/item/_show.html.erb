@@ -15,8 +15,6 @@
 <% if @items.exists?(params[:id])%>
 <% item = @items.find(params[:id])%>
 
-
-
 <div class="container mb-2">
   <div class="row">
     <div class="col-md-6">
@@ -31,10 +29,10 @@
       <h2 class="font-weight-bold">Buy picture from <%= item.title %></h2>
       <h3 class="font-weight-light"><%= item.price %>€</h3>
       <p><strong>"<%= item.description %>"</strong></p>
-      <p class="text-muted">Once you add this picture to your cart and validate your order, you will receive your cute cat picture by mail under a very short time.</p>
+      <p class="text-muted">Once you add this picture to your cart and validate your order, you will receive your cute cat picture by mail under a vitem_idery short time.</p>
       <p class="text-muted">All of our cat picture are certificated 100% cute. All of our cats pictured on these pic are very well traited and get a lot of hugs and kisses.</p>
       <br>
-      <a href="/cart_item/<%= item.id %>" class="btn btn-gradient btn-block m-0"> add to cart </a>
+      <a href="/cart/<%= item.id %>" data-method="put" class="btn btn-gradient btn-block m-0"> add to cart </a>
     </div>
   </div>
   <a href="<%= root_path %>">Back to product page</a>

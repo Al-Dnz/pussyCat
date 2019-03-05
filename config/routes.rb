@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   resources :cart_item
-  get 'card/show'
+  #get 'card/show'
+  resources :cart
   devise_for :users
   resources :item , only: [:index , :show, :destroy]
 
