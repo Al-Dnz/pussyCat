@@ -15,7 +15,7 @@
           <p class="card-text"><%= item.description %></p>
         </div>
         <div class="card-footer text-muted text-sm">
-          <span class="opacity-75"><%= item.price %></span>
+          <span class="opacity-75"><a href="/cart_item/<%= item.id %>" class="btn btn-gradient btn-block m-0"> add to cart <span class="h6"><%= item.price %>$</span></a></span>
         </div>
       </div>
 
