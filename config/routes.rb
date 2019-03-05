@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :cart , only: [:index , :show, :destroy , :create, :update]
   #resources :cart_item , only: [:show, :destroy , :create]
-
+  resources :order, only: [:create]
 
 
   root 'item#index'
