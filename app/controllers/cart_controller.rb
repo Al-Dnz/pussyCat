@@ -1,9 +1,11 @@
 class CartController < ApplicationController
+  before_action :authenticate_user, only: [:show]
+
   def create
   end
 
   def show
-    @cart = Cart.find_by(user_id: 5)
+    @cart = Cart.find_by(user_id: current_user.id)
     @items =  []
     CartItem.where(cart_id: @cart.id).each do |cart_item|
         @items << Item.find(cart_item.item_id)
