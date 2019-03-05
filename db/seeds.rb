@@ -23,17 +23,17 @@ puts "SEED 10.times to User"
 # end
 #
 # puts"Fake Users : Generated"
-#
-# i=1
-# 20.times do
-#   cart = Cart.create(user_id: i  )
-#   i+=1
-# end
-#
-# puts"Fake Carts : Generated"
-#
-# 20.times do
-#   cart_item = CartItem.create(cart_id: rand(1..Cart.count) , item_id: rand(1..Item.count)  )
-# end
-#
-# puts"Fake Cart_items : Generated"
+
+i=1
+20.times do
+  cart = Cart.create(user_id: i  )
+  i+=1
+end
+
+puts"Fake Carts : Generated"
+
+20.times do
+  cart_item = CartItem.create(cart_id: rand(1..Cart.count) , item_id: rand(1..Item.count)  )
+end
+
+puts"Fake Cart_items : Generated"
