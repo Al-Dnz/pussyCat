@@ -6,6 +6,16 @@ end
 
 puts"Fake Items : Generated"
 
+10.times do
+	user = User.create(email: Faker::Internet.email, password: "adminadmin")
+	#cart = Cart.create(user_id: user.id)
+end
+
+puts "SEED 10.times to User"
+#puts "SEED 10.times to Card"
+
+
+
 #TEST SEED
 
 # 15.times do

@@ -4,4 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_one :cart, dependent: :destroy
+  
+  after_create :create_cart_for_this_user
+
+  def create_cart_for_this_user
+    cart = Cart.create(user_id: User.last.id)
+  end
 end
