@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-before_action :authenticate_user, only: [:show]
+before_action :authenticate_user, only: [:show, :index , :update]
 
   def update
   	@cart_item = CartItem.new(item_id: params[:id], cart_id: current_user.cart.id)
