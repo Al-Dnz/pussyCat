@@ -1,0 +1,93 @@
+<header class="navbar-wrapper navbar-sticky navbar-top">
+  <div class="d-table-cell align-middle pr-md-3">
+    <%= image_tag "logo.png", class: "logo-navbar" %>
+    <a class="navbar-brand mr-1" href="<% root_path %>"></a>
+  </div>
+  <div class="d-table-cell w-100 align-middle pl-md-3">
+    <div class="navbar-top d-none d-lg-flex justify-content-between align-items-center">
+      <div>
+        <a class="social-btn sb-style-3 sb-twitter" href="#">
+          <i class="socicon-twitter"></i>
+        </a>
+        <a class="social-btn sb-style-3 sb-facebook" href="#">
+          <i class="socicon-facebook"></i>
+        </a>
+        <a class="social-btn sb-style-3 sb-pinterest" href="#">
+          <i class="socicon-pinterest"></i>
+        </a>
+        <a class="social-btn sb-style-3 sb-instagram" href="#">
+          <i class="socicon-instagram"></i>
+        </a>
+      </div>
+      <div>
+        <ul class="list-inline mb-0">
+          <li class="dropdown-toggle mr-2">
+            <a class="navbar-link" href="account-login.html">
+              <i class="fe-icon-user"></i>Login or Create account</a>
+            <div class="dropdown-menu right-aligned p-3 text-center" style="min-width: 200px;">
+              <p class="text-sm opacity-70">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p><%= link_to "Sign in", new_user_session_path, class: "btn btn-primary btn-sm btn-block" %>
+              <p class="text-sm text-muted mt-3 mb-0">New customer?
+                <%= link_to "register", new_user_registration_path %></p>
+            </div>
+          </li>
+          <li class="dropdown-toggle">
+            <a class="navbar-link" href="#">FR /€</a>
+            <div class="dropdown-menu lang-dropdown right-aligned">
+              <div class="p-3"></li>
+            </ul>
+          </div>
+        </div>
+        <div class="navbar justify-content-end justify-content-lg-between">
+          <!-- Search-->
+          <form class="search-box" method="get">
+            <input type="text" id="site-search" placeholder="Type A or C to see suggestions">
+            <span class="search-close">
+              <i class="fe-icon-x"></i>
+            </span>
+          </form>
+          <!-- Main Menu-->
+          <ul class="navbar-nav d-none d-lg-block">
+            <!-- Home-->
+            <li class="nav-item mega-dropdown-toggle active"><%= link_to "PUSSY SHOP", root_path, class: "nav-link text-accent"%>
+
+              <!-- shop -->
+              <li class="nav-item mega-dropdown-toggle">
+                <a class="nav-link  text-accent" href="#">Shop</a>
+                <div class="dropdown-menu mega-dropdown">
+                  <div class="d-flex">
+                    <div class="column">
+                      <div class="widget widget-custom-menu">
+                        <h4 class="widget-title">Shop Layouts</h4>
+                        <ul>
+                          <li>
+                            <a href="#">example column 1</a>
+                          </li>
+
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="column">
+                      <div class="widget widget-custom-menu">
+                        <h4 class="widget-title">Shop Pages</h4>
+                        <ul>
+                          <li>
+                            <a href="#">example column 2</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- Account-->
+              <li class="nav-item dropdown-toggle">
+                <a class="nav-link text-accent" href="account-orders.html">Account</a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-item"><%= link_to "Login / Register", new_user_session_path %></li>
+                  <li class="dropdown-item"><%= link_to "Password Recovery", new_user_password_path %></li>
+                </ul>
+              </li>
+
+            </div>
+          </div>
+        </header>
