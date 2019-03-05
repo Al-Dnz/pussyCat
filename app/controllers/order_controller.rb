@@ -26,6 +26,8 @@
      current_user.cart.cart_items.each do |cartitem|
        cartitem.destroy
      end
+     redirect_to 'root'
+     puts  "j'ai lu ta rooutes"
    end
  rescue Stripe::CardError => e
    flash[:error] = e.message
