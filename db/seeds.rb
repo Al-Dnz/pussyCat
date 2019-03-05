@@ -1,10 +1,20 @@
 require 'faker'
 
 20.times do
-  item = Item.create(title: Faker::Creature::Cat.name, description: Faker::Lorem.paragraph, price: rand(1..100), image_url: "https://loremflickr.com/320/240?random=#{rand(1..10)}")
+  item = Item.create(title: Faker::Creature::Cat.name, description: Faker::Lorem.paragraph, price: rand(1..100), image_url: "https://loremflickr.com/320/240?random=#{rand(1..20)}")
 end
 
 puts"Fake Items : Generated"
+
+10.times do
+	user = User.create(email: Faker::Internet.email, password: "adminadmin")
+	#cart = Cart.create(user_id: user.id)
+end
+
+puts "SEED 10.times to User"
+#puts "SEED 10.times to Card"
+
+
 
 #TEST SEED
 
