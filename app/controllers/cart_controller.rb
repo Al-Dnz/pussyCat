@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-
+before_action :authenticate_user, only: [:show, :index , :update]
 
   def update
   	@cart_item = CartItem.new(item_id: params[:id], cart_id: current_user.cart.id)
@@ -15,8 +15,8 @@ class CartController < ApplicationController
   def create
   end
 
-  def show
-    @cart = Cart.find_by(user_id: 5)
+  def index
+    @cart = Cart.find_by(user_id: current_user.id)
     @items =  []
     CartItem.where(cart_id: @cart.id).each do |cart_item|
         @items << Item.find(cart_item.item_id)
@@ -38,5 +38,5 @@ class CartController < ApplicationController
     end
 
   end
-  
+
 end

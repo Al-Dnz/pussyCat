@@ -1,8 +1,9 @@
 class CartItemController < ApplicationController
+  before_action :authenticate_user, only: [:show, :index]
+
   def new
     @cart_item = CartItem.new
   end
-
 
   def show
     @cart_item = CartItem.find(params[:id])
