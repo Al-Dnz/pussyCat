@@ -15,7 +15,7 @@ before_action :authenticate_user, only: [:show]
   def create
   end
 
-  def show
+  def index
     @cart = Cart.find_by(user_id: current_user.id)
     @items =  []
     CartItem.where(cart_id: @cart.id).each do |cart_item|
