@@ -1,29 +1,45 @@
-<h2>Votre Panier</h2>
+<div class="container mb-2">
 
-<% if @items.count == 0 %>
-<h2>Votre panier est vide</h2>
+  <% if @items.count == 0 %>
+    <h2>Votre panier est vide</h2>
 
-<% else %>
-
-  <% @items.each do |item| %>
-    <img src="<%=item.image_url%>" alt="images de chat">
-    <br>
-    <%= item.title %>
-    <br>
-    <%= item.description %>
-    <br>
-    <%=  item.price %> €
-    <br>
-    <% cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
-
-    <%= link_to "Remove", cart_item_path(cart_item.id), method: :delete %>
-    <br>
-
-    <br> <br>
-  <% end %>
-
-  <h3> TOTAL = <%= @total %> €</h3>
+  <% else %>
   <br>
-  <a href="<%= order_index_path %>" data-method="POST">PASSER LA COMMANDE</a>
+    <h2>Votre Panier</h2>
+    <br>
+
+    <% @items.each do |item|%>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="product-gallery"  >
+
+            <img class="card-img-top" src="<%= item.image_url %>" alt="Cat_Picture" image="image" cap="cap"><br><br>
+          </div>
+        </div>
+        <div class="col-md-6 pb-5">
+          <br><br>
+          <h2 class="font-weight-bold"><%= item.title %></h2>
+          <h3 class="font-weight-light"><%= item.price %>
+            €</h3>
+          <p>
+            <strong>"<%= item.description %>"</strong>
+          </p>
+          <p class="text-muted">Once you add this picture to your cart and validate your order, you will receive your cute cat picture by mail under a vitem_idery short time.</p>
+          <p class="text-muted">All of our cat picture are certificated 100% cute. All of our cats pictured on these pic are very well traited and get a lot of hugs and kisses.</p>
+          <br>
+
+        </div>
+      </div>
+
+    <% end %>
+
+    <br>
+    <h3>TOTAL : <%= @total %>€</h3>
+
+    <a href="<%= order_index_path %>" data-method="POST" class="btn btn-gradient btn-block m-0">PASSER LA COMMANDE</a>
+    <br>
+    <a href="<%= root_path %>">Retour à la page Index</a>
+  </div>
 
 <% end %>
