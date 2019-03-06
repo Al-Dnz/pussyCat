@@ -17,7 +17,9 @@
          currency: 'eur',
          })
 
-
+     #mailer a déplace :
+     UserMailer.validate_buy_stripe(current_user).deliver_now
+     #############################
 
      order = Order.create(user_id: current_user.id, stripe_customer_id: customer.id)
      current_user.cart.items.each do |item|
