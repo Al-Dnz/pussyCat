@@ -9,6 +9,10 @@
   <ul class="list-group list-group-flush">
     <a href="<%=edit_user_registration_path%>"><li class="list-group-item active">Edit your profile</li></a>
     <a href="<%=cart_index_path%>"><li class="list-group-item active">Check your cart</li></a>
+    <% if current_user.admin? %>
+    <a href="<%=new_admin_item_path%>"><li class="list-group-item active">Add new item</li></a>
+    <% else %>
+    <% end %>
 
 
     <li class="list-group-item"></li>
@@ -32,7 +36,7 @@
         <% @orders.each do |order| %>
         <tr>
           <th scope="row"><a href="<%=order_path(order.id)%>"><%= order.id %></a></th>
-            <td><%= order.items.count %></th>
+            <td><%= order.items.count %></td>
           <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
           <td><span class="badge badge-success m-0">Delivered</span></td>
           <% @total = 0 %>
