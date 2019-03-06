@@ -26,7 +26,7 @@
      current_user.cart.cart_items.each do |cartitem|
        cartitem.destroy
      end
-     redirect_to 'root'
+     redirect_to request.referrer
      puts  "j'ai lu ta rooutes"
    end
  rescue Stripe::CardError => e

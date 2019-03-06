@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :item , only: [:index , :show, :destroy]
-  resources :cart_item , only: [:show, :destroy , :create]
+  resources :cart_item , only: [:show, :destroy , :create , :new]
 
   resources :cart , only: [:index , :destroy , :create, :update]
   #resources :cart_item , only: [:show, :destroy , :create]
