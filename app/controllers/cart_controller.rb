@@ -28,10 +28,10 @@ before_action :authenticate_user, only: [ :index , :update , :delete_item]
   def destroy
   end
 
-  def delete_item
-    CartItem.delete(params[:id])
-    redirect_to request.referrer
-  end
+  # def delete_item
+  #   CartItem.delete(params[:id])
+  #   redirect_to request.referrer
+  # end
 
   private
 

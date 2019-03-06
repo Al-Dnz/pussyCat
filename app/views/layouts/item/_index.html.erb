@@ -15,8 +15,9 @@
           <p class="card-text"><%= item.description %></p>
         </div>
         <div class="card-footer text-muted text-sm">
-          <span class="opacity-75"><a href="<%=cart_path(item.id) %>" data-method="put" class="btn btn-gradient btn-block m-0"> Ajouter au panier </a><%= item.price %>$</span>
-          <%= link_to "ADDDD TO CAAAAAAART", add_to_cart_path(item.id) %>
+          <span class="opacity-75"><%= link_to "AJOUTER AU PANIER", cart_path(item.id), :method => :put,  :class=>"btn btn-gradient btn-block m-0" %>
+            <%= item.price %>$</span>
+
         </div>
       </div>
 
