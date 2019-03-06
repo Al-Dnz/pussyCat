@@ -16,6 +16,7 @@
         </div>
         <div class="card-footer text-muted text-sm">
           <span class="opacity-75"><a href="<%= cart_path(item.id) %>" data-method="patch" class="btn btn-gradient btn-block m-0"> add to cart </a><%= item.price %>$</span>
+          <%= link_to "ADDDD TO CAAAAAAART", add_to_cart_path, remote: true, data: {params: {id: item.id}.to_param} %>
         </div>
       </div>
 
