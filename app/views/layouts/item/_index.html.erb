@@ -15,7 +15,7 @@
           <p class="card-text"><%= item.description %></p>
         </div>
         <div class="card-footer text-muted text-sm">
-          <span class="opacity-75"><a href="<%= cart_path(item.id) %>" data-method="patch" class="btn btn-gradient btn-block m-0"> Ajouter au panier </a><%= item.price %>$</span>
+          <span class="opacity-75"><a href="/cart/<%= item.id %>" data-method="patch" class="btn btn-gradient btn-block m-0"> Ajouter au panier </a><%= item.price %>$</span>
           <%= link_to "ADDDD TO CAAAAAAART", add_to_cart_path, data: {params: {id: item.id}.to_param} %>
         </div>
       </div>
