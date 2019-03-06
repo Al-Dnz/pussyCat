@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" align="center">
   <div class="col-md-6">
     <h2>Add an avatar</h2>
     <%= form_tag user_avatar_index_path(@user.id), multipart: true do %>
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "mettre à jour" %>
+  <%= file_field_tag :avatar %> <br><br>
+  <%= submit_tag "mettre à jour", class: 'btn btn-primary btn-submit' %>
 <% end %>
-
+<br>
   </div>
 </div>

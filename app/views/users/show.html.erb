@@ -4,6 +4,7 @@
     <div class="card">
   <div class="card-body">
     <div align="center">
+      <br>
     <%if @user.avatar.attached?%>
 <%= image_tag @user.avatar, alt: 'avatar', class: 'avatar' %>
 <%else%>
@@ -15,6 +16,7 @@
   </div>
   <ul class="list-group list-group-flush">
     <a href="<%=edit_user_registration_path%>"><li class="list-group-item active">Edit your profile</li></a>
+    <a href="<%=new_user_avatar_path(@user.id)%>"><li class="list-group-item active">Change your avatar</li></a>
     <a href="<%=cart_index_path%>"><li class="list-group-item active">Check your cart</li></a>
     <% if current_user.admin? %>
     <a href="<%=new_admin_item_path%>"><li class="list-group-item active">Add new item</li></a>
