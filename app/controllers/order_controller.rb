@@ -26,9 +26,15 @@
      current_user.cart.cart_items.each do |cartitem|
        cartitem.destroy
      end
-   end
+     redirect_to request.referrer
+
  rescue Stripe::CardError => e
    flash[:error] = e.message
    redirect_to new_charge_path
+ end
+
+   def show
+     @order = Order.find(params["id"])
+   end
 
  end
