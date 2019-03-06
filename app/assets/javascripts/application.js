@@ -12,9 +12,6 @@
 //
 //= require jquery_ujs
 //= require card.min
-//= require modernizr.min
-//= require theme.min
-//= require vendor.min
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
