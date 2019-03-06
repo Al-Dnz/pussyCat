@@ -31,6 +31,8 @@
           <br>
           <%cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
           <%= link_to "RETIRER DE MON PANIER", cart_item_path(cart_item.id), :method => :delete %>
+          <br>
+          <%= link_to "VIRER LE DE MON PANIER", delete_item_path(cart_item.id) %>
 
         </div>
 

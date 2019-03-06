@@ -1,5 +1,5 @@
 class CartController < ApplicationController
-before_action :authenticate_user, only: [ :index , :update]
+before_action :authenticate_user, only: [ :index , :update , :delete_item]
 
   def update
   	@cart_item = CartItem.new(item_id: params[:id], cart_id: current_user.cart.id)
@@ -26,7 +26,11 @@ before_action :authenticate_user, only: [ :index , :update]
   end
 
   def destroy
+  end
 
+  def delete_item
+    CartItem.delete(params[:id])
+    redirect_to request.referrer
   end
 
   private
