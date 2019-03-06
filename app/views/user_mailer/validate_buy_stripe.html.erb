@@ -5,8 +5,10 @@
 <h3>Tu as commandé :</h3>
 
 <% @user.cart.items.each do |item| %>
+<h2><%=item.title%></h2>
+<br>
  <img src="<%= item.image_url %>">
-<p><%=item.title%>
+<p>
   <br>
   <%= item.price%>
   <br>
