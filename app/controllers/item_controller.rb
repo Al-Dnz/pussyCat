@@ -19,14 +19,6 @@ class ItemController < ApplicationController
     redirect_to item_path(params[:id])
   end
 
-  private
 
-  def authenticate_user
-    unless current_user
-      #flash[:danger] = "Connectez vous afin d'accéder aux fonctionnalités"
-      redirect_to new_user_session_path
-    end
-
-  end
 
 end

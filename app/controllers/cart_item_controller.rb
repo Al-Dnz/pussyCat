@@ -1,5 +1,5 @@
 class CartItemController < ApplicationController
-  before_action :authenticate_user, only: [:show, :index , :create , :update]
+  before_action :authenticate_user, only: [:show, :index , :create , :update ,:destroy]
 
   def new
     @cart_item = CartItem.new
@@ -31,4 +31,15 @@ class CartItemController < ApplicationController
     @cart_item.destroy
     redirect_to request.referrer
   end
+
+  private
+
+  def authenticate_user
+    unless current_user
+      #flash[:danger] = "Connectez vous afin d'accéder aux fonctionnalités"
+      redirect_to new_user_session_path
+    end
+
+  end
+
 end
