@@ -34,7 +34,7 @@
                 <%= link_to "register", new_user_registration_path %></p>
               <% end %>
             </div>
-          </li>        
+          </li>
         </ul>
       </div>
     </div>
@@ -84,6 +84,10 @@
               <li class="nav-item dropdown-toggle">
                 <a class="nav-link text-accent" href="account-orders.html">Account</a>
                 <ul class="dropdown-menu">
+                  <% if current_user %>
+                  <li class="dropdown-item"><%= link_to "Your profile", user_path(current_user.id) %></li>
+                  <% else %>
+                  <% end %>
                   <li class="dropdown-item"><%= link_to "Login / Register", new_user_session_path %></li>
                   <li class="dropdown-item"><%= link_to "Password Recovery", new_user_password_path %></li>
                 </ul>

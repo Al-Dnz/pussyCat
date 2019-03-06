@@ -27,10 +27,16 @@
        cartitem.destroy
      end
      redirect_to request.referrer
-     puts  "j'ai lu ta rooutes"
+
    end
+
  rescue Stripe::CardError => e
    flash[:error] = e.message
    redirect_to new_charge_path
+ end
+
+   def show
+     @order = Order.find(params["id"])
+   end
 
  end

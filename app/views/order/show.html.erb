@@ -1,0 +1,14 @@
+ <% @order.items.each do |item| %>
+   <img src="<%=item.image_url%>" alt="images de chat">
+   <br>
+   <%= item.title %>
+   <br>
+   <%= item.description %>
+   <br>
+   <%=  item.price %> €
+   <br>
+
+   <br>
+
+   <br> <br>
+ <% end %>
