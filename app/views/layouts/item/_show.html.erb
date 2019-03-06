@@ -1,9 +1,9 @@
-<% if flash[:notice] == "add cart successfully" %>
+<% if flash[:notice] == "Cette photo vient d'être ajoutée à votre panier" %>
   <div class="alert alert-dismissible alert-success">
     <div class="notice"><strong><%= flash[:notice] %></strong></div>
     <button type="button" class="close" data-dismiss="alert">&times;</button>
   </div>
-<% elsif flash[:notice] == "add cart fail" %>
+<% elsif flash[:notice] == "Problème d'ajout au panier" %>
   <div class="alert alert-dismissible alert-danger">
     <div class="notice"><strong><%= flash[:notice] %></strong></div>
     <button type="button" class="close" data-dismiss="alert">&times;</button>
