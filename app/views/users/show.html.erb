@@ -3,7 +3,14 @@
   <div class="col-md-4">
     <div class="card">
   <div class="card-body">
-    <h4 class="card-title"><%= @user.email %></h4>
+    <div align="center">
+    <%if @user.avatar.attached?%>
+<%= image_tag @user.avatar, alt: 'avatar', class: 'avatar' %>
+<%else%>
+<% end %>
+<h4 class="card-title"><%= @user.email %></h4>
+</div>
+
     <p class="card-text">This is your profile page, you can check your information and your previous orders.</p>
   </div>
   <ul class="list-group list-group-flush">

@@ -20,6 +20,15 @@
 
  //color link
 
+ .avatar {
+   object-fit: cover;
+   width:100px;
+   height:100px;
+   border-radius: 50%;
+   position: relative;
+     top: -20px;
+ }
+
  .navbar-nav .nav-item.active .nav-link {
     color: #ff4084;
 }
