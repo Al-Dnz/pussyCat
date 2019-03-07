@@ -6,8 +6,8 @@
     <div align="center">
       <br>
     <%if @user.avatar.attached?%>
-<%= image_tag @user.avatar, alt: 'avatar', class: 'avatar' %>
-<%else%>
+<%=image_tag @user.avatar, alt: 'avatar', class: 'avatar' %>
+
 <% end %>
 <h4 class="card-title"><%= @user.email %></h4>
 </div>
@@ -49,7 +49,7 @@
           <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
           <td><span class="badge badge-success m-0">Envoyé</span></td>
           <% @total = 0 %>
-          
+          <% order.items.each { |itm| @total+=itm.price } %>
           <td><%= @total %>€</td>
         </tr>
         <% end %>
