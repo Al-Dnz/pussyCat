@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('cat_icon.png') %>
 
-    <%= audio_tag "miaou.wav" , id:"sound_miaou" , class: "audio-to-play"  , autoplay: true %>
+
   </head>
 
 
@@ -31,10 +31,7 @@
 
   </body>
 
-  <script>
-    var audio = document.getElementById("sound_miaou");
-    audio.volume = 0.3;
-  </script>
+  
 
 
 

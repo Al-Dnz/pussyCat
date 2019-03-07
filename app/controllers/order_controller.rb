@@ -29,6 +29,10 @@
      current_user.cart.cart_items.each do |cartitem|
        cartitem.destroy
      end
+     respond_to do |format|
+      format.html
+      format.js #this is needed to handle ajaxified pagination
+    end
      redirect_to request.referrer
 
    rescue Stripe::CardError => e

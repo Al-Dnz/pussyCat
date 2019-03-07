@@ -1,3 +1,23 @@
+
+<%= audio_tag "miaou.wav" , id:"sound_miaou" , class: "audio-to-play"  , autoplay: false %>
+<script>
+  var audio = document.getElementById("sound_miaou");
+  audio.volume = 0.3;
+</script>
+
+
+<% if flash[:notice] == "add cart successfully" %>
+  <div class="alert alert-dismissible alert-success">
+    <div class="notice"><strong><%= flash[:notice] %></strong></div>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+<% elsif flash[:notice] == "Problème d'ajout au panier" %>
+  <div class="alert alert-dismissible alert-danger">
+    <div class="notice"><strong><%= flash[:notice] %></strong></div>
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+<% end %>
+
 <div class="container">
 
 
@@ -16,7 +36,7 @@
         </div>
         <div class="card-footer text-muted text-sm">
           <span class="opacity-75"><%= link_to "AJOUTER AU PANIER", cart_path(item.id), :method => :put,  :class=>"btn btn-gradient btn-block m-0" %>
-            <%= item.price %>$</span>
+            <%= item.price %>€</span>
 
         </div>
       </div>
