@@ -1,0 +1,9 @@
+<h1>coucou <%= @admin_user.email %></h1>
+<p><%= @user.email %> buy :</p>
+
+<% @user.cart.items.each do |item| %>
+ <img src="<%= item.image_url %>">
+ <p><%= item.title %><br>
+ <%= item.price %><br>
+<%= item.description %></p>
+<% end %>
