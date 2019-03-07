@@ -57,7 +57,9 @@
           <ul class="navbar-nav d-none d-lg-block">
             <!-- Home-->
             <li class="nav-item mega-dropdown-toggle active"><%= link_to "THE PUSSYCAT SHOP", root_path, class: "nav-link text-accent"%>
+              <% if current_user %>
               <li class="nav-item mega-dropdown-toggle active"><%= link_to "PANIER (#{current_user.cart.items.count})", cart_index_path,  class: "nav-link text-accent"%>
+                <%end%>
               <!-- shop -->
 
               <!-- Account-->
