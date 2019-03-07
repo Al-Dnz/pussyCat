@@ -4,9 +4,11 @@ before_action :authenticate_user, only: [ :index , :update , :delete_item]
   def update
   	@cart_item = CartItem.new(item_id: params[:id], cart_id: current_user.cart.id)
   	if @cart_item.save
-  		flash[:notice] = "add cart successfully"
+
+  		flash[:notice] = "Cette photo vient d'être ajoutée à votre panier"
   	else
-  		flash[:notice] = "add cart fail"
+  		flash[:danger] = "add cart fail"
+
   	end
   end
 

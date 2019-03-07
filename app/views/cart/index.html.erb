@@ -23,6 +23,7 @@
     </thead>
 
 
+
       <% @items.each do |item|%> <!-- START EACH LOOP FOR ITEMS -->
 
 
@@ -48,7 +49,8 @@
     <br>
     <h3>TOTAL : <%= @total %>€</h3>
 
-    <%= form_tag order_index_path do %> <!-- START STRIPE -->
+    <%= form_tag order_index_path  remote: true do %>
+
     <article>
       <% if flash[:error].present? %>
         <div id="error_explanation">
