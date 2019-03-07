@@ -17,9 +17,10 @@
          currency: 'eur',
          })
 
-     #mailer a déplace :
      UserMailer.validate_buy_stripe(current_user).deliver_now
-     #############################
+     User.where("admin", "true").each do |admin|
+       UserMailer.admin_validate_buy_stripe(current_user, admin).deliver_now
+     end
 
      order = Order.create(user_id: current_user.id, stripe_customer_id: customer.id)
      current_user.cart.items.each do |item|
@@ -40,4 +41,6 @@
      @order = Order.find(params["id"])
    end
 
+
 end
+
