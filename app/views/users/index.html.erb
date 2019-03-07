@@ -25,13 +25,13 @@
             <% end%>
           </ul>
         </td>
-        <% if user != current_user %>
+        <% if user.admin != true %>
           <td>
             <a href="<%=user_path(user.id)%>" class="text-secondary text-light btn-sm btn btn-outline-secondary bg-danger" data-method="delete">Supprimer</a>
           </td>
         <%else%>
           <td>
-            <a></a>
+            ADMIN
           </td>
         <% end %>
 
