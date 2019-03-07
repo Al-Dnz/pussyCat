@@ -9,6 +9,7 @@ class Admin::ItemController < ApplicationController
   def create
     @item = Item.create(title: params["title"], description: params["description"], price: params["price"].to_f)
     @item.cat.attach(params[:cat])
+    puts "image postée !"
     redirect_to request.referrer
   end
 
