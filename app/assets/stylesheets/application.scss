@@ -17,7 +17,12 @@
  *= require_self
 
  */
+html{overflow-x: hidden;}
 
+//table
+table, th, td > .table  {
+  border: 0px solid transparent;
+}
  //color link
 
  * {
@@ -64,3 +69,23 @@ img.logo-navbar {
    content: '';
    z-index: -1;
  }
+
+ //quote css index => cart
+ .blockquote::before {
+    display: none;
+    position: absolute;
+    top: -6px;
+    left: 1.5rem;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    background-color: rgba(172, 50, 228, 0.1);
+    color: #32e4bf;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.875rem;
+    line-height: 39px;
+    text-align: center;
+    content: '“';
+}
+
+.img-cart {width: 65px;}

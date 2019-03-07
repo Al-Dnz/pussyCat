@@ -1,47 +1,56 @@
-<div class="container mb-2">
+<div class="container mb-2"><!-- START CONTAINER -->
 
-  <% if @items.count == 0 %>
+
+<div class="row py-2">
+  <% if @items.count == 0 %>   <!-- START CONDITION CART.COUNT -->
     <h2>Votre panier est vide</h2>
 
   <% else %>
-  <br>
-    <h2>Votre Panier</h2>
-    <br>
 
-    <% @items.each do |item|%>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="product-gallery"  >
+</div>
 
 
-            <%= image_tag item.cat, :alt => "cat-pic" %><br><br>
-          </div>
-        </div>
-        <div class="col-md-6 pb-5">
-          <br><br>
-          <h2 class="font-weight-bold"><%= item.title %></h2>
-          <h3 class="font-weight-light"><%= item.price %>
-            €</h3>
-          <p>
-            <strong>"<%= item.description %>"</strong>
-          </p>
-          <br>
+        <!-- Table Basic Example -->
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Votre Panier</th>
+        <th>Cat name</th>
+        <th>Price</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+
+
+
+      <% @items.each do |item|%> <!-- START EACH LOOP FOR ITEMS -->
+
+
+  <tbody>
+      <tr>
+        <th scope="row">
+          <%= image_tag item.cat, :alt => "cat-pic", class: "img-cart"%>
+        </th>
+        <td><%= item.title %></td>
+        <td><%= item.price %></td>
+        <td>
           <%cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
-          <%= link_to "RETIRER DE MON PANIER", cart_item_path(cart_item.id), :method => :delete %>
+          <%= link_to "RETIRER DE MON PANIER", cart_item_path(cart_item.id), :method => :delete %></td>
+      </tr>
+    </tbody>
 
 
-        </div>
+      <% end %> <!-- END OF EACH LOOP FOR ITEMS -->
+    </table>
+    </div><!-- end table-responsive -->
 
-      </div>
-      <br>
-
-
-    <% end %>
 
     <br>
     <h3>TOTAL : <%= @total %>€</h3>
+
     <%= form_tag order_index_path  remote: true do %>
+
     <article>
       <% if flash[:error].present? %>
         <div id="error_explanation">
@@ -61,15 +70,12 @@
             data-locale="auto"></script>
 
 
-  <% end %>
+  <% end %>   <!-- END STRIPE -->
 
 
     <br><br>
     <a href="<%= root_path %>">Retour à la page Index</a>
     <br>
 
-
-  </div>
-
-
-<% end %>
+<% end %> <!-- END IF CONDITION CART.COUNT -->
+</div>  <!-- END CONTAINER -->
