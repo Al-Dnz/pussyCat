@@ -1,6 +1,5 @@
  <% @order.items.each do |item| %>
-   <img src="<%=item.image_url%>" alt="images de chat">
-   <br>
+<%= image_tag item.cat, :alt => "cat-pic" %>   <br>
    <%= item.title %>
    <br>
    <%= item.description %>
