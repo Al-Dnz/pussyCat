@@ -1,5 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe CartItemController, type: :controller do
+RSpec.describe ItemController, type: :controller do
+
 
 end
