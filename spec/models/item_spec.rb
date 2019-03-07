@@ -27,13 +27,11 @@ RSpec.describe Item, type: :model do
        context "assosiations" do
          it do
           should have_many(:carts).
-          through(:cart_items).
-          class_name('Item')
+          through(:cart_items)
          end
-         it do
-           should have_many(:orders).
-           through(:item_orders).
-           class_name('Item')
+        it do
+          should have_many(:orders).
+          through(:item_orders)
        end
-     end 
+     end
 end

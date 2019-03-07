@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('cat_icon.png') %>
 
-    <%= audio_tag "miaou.wav" , id:"sound_miaou" , class: "audio-to-play"  , autoplay: true %>
+    <%= audio_tag "miaou" , id:"sound_miaou" , class: "audio-to-play"  , autoplay: true %>
   </head>
 
 
@@ -27,21 +27,16 @@
     <%= yield %>
     <%= render "layouts/footer"%>
 
-    <script>
-      var audio = document.getElementById("sound_tom_jones");
-      audio.volume = 0.0;
-    </script>
+
 
   </body>
 
-<<<<<<< Updated upstream
   <script>
     var audio = document.getElementById("sound_miaou");
     audio.volume = 0.3;
   </script>
-=======
 
->>>>>>> Stashed changes
+
 
 
 </html>
