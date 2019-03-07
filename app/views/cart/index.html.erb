@@ -30,7 +30,7 @@
     <%cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
       <tr id="item-<%= cart_item.id %>">
         <th scope="row">
-        <img class="d-flex mr-3" src="<%= item.cat %>" width="64" alt="cat-pic">
+          <%= image_tag item.cat, :alt => "cat-pic", class: "img-cart"%>
         </th>
         <td><%= item.title %></td>
         <td><%= item.price %></td>
