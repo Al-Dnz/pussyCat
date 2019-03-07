@@ -18,9 +18,9 @@
     <a href="<%= edit_user_registration_path %>"><li class="list-group-item active">  Modifier votre profil</li></a>
     <a href="<%= new_user_avatar_path(@user.id) %>"><li class="list-group-item active">Modifier votre avatar</li></a>
     <a href="<%=cart_index_path%>"><li class="list-group-item active">Votre panier</li></a>
-    <% if current_user.admin? %>
-    <a href="<%=new_admin_item_path%>"><li class="list-group-item active">Ajouter un article</li></a>
-    <% else %>
+    <% if  current_user && current_user.admin == true %>
+    <a href="<%=new_admin_item_path%>"><li class="list-group-item active ">Ajouter un article (ADMIN ONLY)</li></a>
+    <a href="#"><li class="list-group-item active ">Table des utilisateurs (ADMIN ONLY)</li></a>
     <% end %>
 
 
