@@ -7,14 +7,23 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('cat_icon.png') %>
+
+    <%= audio_tag "whats_new_pussycat.mp3" , id:"sound_tom_jones" , class: "audio-to-play"  , autoplay: true %>
   </head>
 
-  <%= render "layouts/navbar"%>
+
 
   <body>
+    <%= render "layouts/navbar"%>
     <%= yield %>
+    <%= render "layouts/footer"%>
   </body>
 
-  <%= render "layouts/footer"%>
+  <script>
+    var audio = document.getElementById("sound_tom_jones");
+    audio.volume = 0.0;
+  </script>
+
 
 </html>
