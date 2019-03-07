@@ -1,6 +1,6 @@
 <div class="container mb-2">
 
-  <% if @items.count == 0 %>
+  <% if @items.count == 0 %>   <!-- START CONDITION CART.COUNT -->
     <h2>Votre panier est vide</h2>
 
   <% else %>
@@ -8,7 +8,7 @@
     <h2>Votre Panier</h2>
     <br>
 
-    <% @items.each do |item|%>
+    <% @items.each do |item|%> <!-- START EACH LOOP FOR ITEMS -->
 
       <div class="row">
         <div class="col-md-6">
@@ -39,11 +39,12 @@
       <br>
 
 
-    <% end %>
+    <% end %> <!-- END OF EACH LOOP FOR ITEMS -->
 
     <br>
     <h3>TOTAL : <%= @total %>€</h3>
-    <%= form_tag order_index_path do %>
+
+    <%= form_tag order_index_path do %> <!-- START STRIPE -->
     <article>
       <% if flash[:error].present? %>
         <div id="error_explanation">
@@ -63,7 +64,7 @@
             data-locale="auto"></script>
 
 
-  <% end %>
+  <% end %>   <!-- END STRIPE -->
 
 
     <br><br>
@@ -74,4 +75,4 @@
   </div>
 
 
-<% end %>
+<% end %> <!-- END IF CONDITION CART.COUNT -->
