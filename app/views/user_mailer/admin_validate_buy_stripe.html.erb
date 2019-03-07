@@ -2,7 +2,7 @@
 <p><%= @user.email %> buy :</p>
 
 <% @user.cart.items.each do |item| %>
- <img src="<%= item.image_url %>">
+   <%= image_tag item.cat, :alt => "cat-pic" %>
  <p><%= item.title %><br>
  <%= item.price %><br>
 <%= item.description %></p>

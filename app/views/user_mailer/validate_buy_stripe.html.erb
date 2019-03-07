@@ -7,7 +7,7 @@
 <% @user.cart.items.each do |item| %>
 <h2><%=item.title%></h2>
 <br>
- <img src="<%= item.image_url %>">
+   <%= image_tag item.cat, :alt => "cat-pic" %>
 <p>
   <br>
   <%= item.title %>
