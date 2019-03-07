@@ -9,7 +9,7 @@
 
       <!-- Card -->
       <div class="card  mb-30">
-        <img src="<%= item.image_url %>" alt="Card image" style="">
+        <%= image_tag item.cat, :alt => "cat-pic" %>
         <div class="card-body">
           <h4 class="card-title"><a href="<%= item_path(item.id) %>"><%= item.title %></a></h4>
           <p class="card-text"><%= item.description %></p>
