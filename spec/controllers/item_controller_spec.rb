@@ -15,4 +15,7 @@ RSpec.describe ItemController, type: :controller do
        expect(response).to have_http_status "200"
      end
 
+     it { should route(:get, '/item').to(action: :index) }
+     it { should route(:get, '/item/1').to(action: :show, id: 1) }
+
 end
