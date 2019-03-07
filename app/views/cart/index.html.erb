@@ -1,43 +1,56 @@
 <div class="container mb-2"><!-- START CONTAINER -->
 
-  <div class="row justify-content-between p-3"><!-- START OF DIV.ROW -->
 
-    <% if @items.count == 0 %>   <!-- START CONDITION CART.COUNT -->
-      <h2>Votre panier est vide</h2>
+<div class="row py-2">
+  <% if @items.count == 0 %>   <!-- START CONDITION CART.COUNT -->
+    <h2>Votre panier est vide</h2>
 
-    <% else %>
-    <br>
-      <h2>Votre Panier</h2>
-      <br>
+  <% else %>
+
+</div>
+
+
+        <!-- Table Basic Example -->
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Votre Panier</th>
+        <th>Cat name</th>
+        <th>Price</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
 
       <% @items.each do |item|%> <!-- START EACH LOOP FOR ITEMS -->
 
-        <div class="row"><!-- START OF DIV.ROW of loop -->
-          <div class="col-md-4">
-            <br><br>
-            <h5 class="font-weight-bold d-flex justify-content-around"><%= item.title %><p class="text-lead"><%= item.price %> € </p></h5>
-            <p class="text-lg">"<%= item.description %>"</p>
-          <div class="blockquote">
-            <p class="text-muted">All of our cat picture are certificated 100% cute.
-              All of our cats pictured on these pic are very well traited and get a lot of hugs and kisses.</p>
-              <footer class="class blockquote-footer">Community Team</footer>
-              </div>
-              <%cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
-            <%= link_to "RETIRER DE MON PANIER", cart_item_path(cart_item.id), :method => :delete %>
-          </div>
+
+  <tbody>
+      <tr>
+        <th scope="row">
+        <img class="d-flex mr-3" src="<%= item.image_url%>" width="64" alt="Media">
+        </th>
+        <td><%= item.title %></td>
+        <td><%= item.price %></td>
+        <%cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
+        <td id="cart-<%= cart_item.id %>">
+        <%= link_to "<<", cart_item_path(cart_item.id), :method => :delete %></td>
+      </tr>
+    </tbody>
+
 
         <!-- AJAX PLACE FOR LOAD PARTIAL IMAGE -->
-          <div class="col-md-8 pb-5">
+          <!-- <div class="col-7 cart-picture">
 
           </div><!--END OF AJAX LOAD IMAGE -->
 
 
-        </div><!-- END OF DIV.ROW of loop -->
 
 
       <% end %> <!-- END OF EACH LOOP FOR ITEMS -->
+    </table>
+    </div><!-- end table-responsive -->
 
-      </div><!-- END ROW -->
 
     <br>
     <h3>TOTAL : <%= @total %>€</h3>

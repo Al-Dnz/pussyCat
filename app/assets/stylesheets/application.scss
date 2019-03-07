@@ -18,6 +18,11 @@
 
  */
 
+
+//table
+table, th, td > .table  {
+  border: 0px solid transparent;
+}
  //color link
 
  .avatar {
@@ -63,7 +68,7 @@ img.logo-navbar {
 
  //quote css index => cart
  .blockquote::before {
-    display: block;
+    display: none;
     position: absolute;
     top: -6px;
     left: 1.5rem;

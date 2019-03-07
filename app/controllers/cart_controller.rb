@@ -21,6 +21,7 @@ before_action :authenticate_user, only: [ :index , :update , :delete_item]
     CartItem.where(cart_id: @cart.id).each do |cart_item|
         @items << Item.find(cart_item.item_id)
     end
+
     @total =0
     @items.each { |item| @total+=item.price }
   end
