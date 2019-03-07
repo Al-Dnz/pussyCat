@@ -18,6 +18,9 @@
 
  */
 
+ body {
+   cursor: url('cat_foot.png'), auto;
+ }
  //color link
 
  .navbar-nav .nav-item.active .nav-link {
@@ -46,7 +49,3 @@ img.logo-navbar {
    content: '';
    z-index: -1;
  }
-
-body {
-  cursor: url('cat_foot.png'), auto;
-}

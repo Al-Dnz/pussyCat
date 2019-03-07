@@ -1,43 +1,42 @@
- class OrderController < ApplicationController
+class OrderController < ApplicationController
+  def create
+    @total = 0
+    current_user.cart.items.each { |item| @total += item.price }
 
-   def create
-     @total =0
-     current_user.cart.items.each { |item| @total+=item.price }
+    @amont = @total * 100
+    customer = Stripe::Customer.create(
+      email: params[:stripeEmail],
+      source: params[:stripeToken]
+    )
 
-     @amont = @total * 100
-     customer = Stripe::Customer.create({
-       email: params[:stripeEmail],
-       source: params[:stripeToken],
-       })
+    charge = Stripe::Charge.create(
+      customer: customer.id,
+      amount: @total.to_i * 100,
+      description: 'Rails Stripe customer',
+      currency: 'eur'
+    )
 
-       charge = Stripe::Charge.create({
-         customer: customer.id,
-         amount: @total.to_i * 100,
-         description: 'Rails Stripe customer',
-         currency: 'eur',
-         })
+    # mailer a déplace :
+    UserMailer.validate_buy_stripe(current_user).deliver_now
+    #############################
 
-     #mailer a déplace :
-     UserMailer.validate_buy_stripe(current_user).deliver_now
-     #############################
+    order = Order.create(user_id: current_user.id, stripe_customer_id: customer.id)
+    current_user.cart.items.each do |item|
+      ItemOrder.create(order_id: order.id, item_id: item.id)
+    end
+    current_user.cart.cart_items.each(&:destroy)
 
-     order = Order.create(user_id: current_user.id, stripe_customer_id: customer.id)
-     current_user.cart.items.each do |item|
-       ItemOrder.create(order_id: order.id, item_id: item.id)
-     end
-     current_user.cart.cart_items.each do |cartitem|
-       cartitem.destroy
-     end
-     redirect_to request.referrer
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    redirect_to request.referrer
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to new_charge_path
+  end
 
-   rescue Stripe::CardError => e
-     flash[:error] = e.message
-     redirect_to new_charge_path
-
-   end
-
-   def show
-     @order = Order.find(params["id"])
-   end
-
+  def show
+    @order = Order.find(params['id'])
+  end
 end
