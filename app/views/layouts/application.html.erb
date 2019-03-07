@@ -9,20 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('cat_icon.png') %>
 
-    <%= audio_tag "whats_new_pussycat.mp3" , id:"sound_tom_jones" , class: "audio-to-play"  , autoplay: true %>
+    <%= audio_tag "miaou.wav" , id:"sound_miaou" , class: "audio-to-play"  , autoplay: true %>
   </head>
 
 
 
   <body>
     <%= render "layouts/navbar"%>
+
+    <% if current_user.admin == true %>
+    <nav class="navbar navbar-light bg-info">
+      <span class="navbar-brand mb-0 h1 ">MODE ADMIN : <%=current_user.email%></span>
+    </nav>
+    <br>
+    <% end %>
+
     <%= yield %>
     <%= render "layouts/footer"%>
   </body>
 
   <script>
-    var audio = document.getElementById("sound_tom_jones");
-    audio.volume = 0.0;
+    var audio = document.getElementById("sound_miaou");
+    audio.volume = 0.3;
   </script>
 
 
