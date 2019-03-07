@@ -22,10 +22,15 @@
          <%= text_field_tag 'Prix', @price, class: "form-control "  %>
    </div>
 
-   <div class="form">
-         <%= label_tag 'Image' %>
-         <%= text_area_tag 'image_url', @image_url, class: "form-control" %>
-   </div><br>
+
+
+
+   <div class="form-group">
+
+     <%= file_field_tag :cat %>
+ </div>
+    <br>
+
 
 
    <div class="form-group">

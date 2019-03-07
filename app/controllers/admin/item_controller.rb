@@ -7,7 +7,8 @@ class Admin::ItemController < ApplicationController
   end
 
   def create
-    @item = Item.create(title: params["title"], description: params["description"], price: params["price"].to_f, image_url: params["image_url"])
+    @item = Item.create(title: params["title"], description: params["description"], price: params["price"].to_f)
+    @item.cat.attach(params[:cat])
     redirect_to request.referrer
   end
 
