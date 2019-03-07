@@ -7,8 +7,18 @@ RSpec.describe Order, type: :model do
     @order = build(:order)
   end
 
-  context "associations" do
+  it { should belong_to(:user)}
 
+
+    context "assosiations" do
+      it do
+       should have_many(:items).
+       through(:item_orders).
+       class_name('Order')
+      end
+
+
+# => other way to test association
     describe "order" do
       it "should have_many orders" do
         order = Order.create(user: @user)
