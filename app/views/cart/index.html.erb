@@ -26,8 +26,6 @@
           <p>
             <strong>"<%= item.description %>"</strong>
           </p>
-          <p class="text-muted">Once you add this picture to your cart and validate your order, you will receive your cute cat picture by mail under a vitem_idery short time.</p>
-          <p class="text-muted">All of our cat picture are certificated 100% cute. All of our cats pictured on these pic are very well traited and get a lot of hugs and kisses.</p>
           <br>
           <%cart_item = CartItem.where(cart_id: @cart.id ,item_id: item.id)[0]%>
           <%= link_to "RETIRER DE MON PANIER", cart_item_path(cart_item.id), :method => :delete %>
@@ -43,7 +41,7 @@
 
     <br>
     <h3>TOTAL : <%= @total %>€</h3>
-    <%= form_tag order_index_path do %>
+    <%= form_tag order_index_path  remote: true do %>
     <article>
       <% if flash[:error].present? %>
         <div id="error_explanation">
