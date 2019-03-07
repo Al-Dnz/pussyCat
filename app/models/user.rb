@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one :cart, dependent: :destroy
   has_many :orders
+  has_one_attached :avatar
 
   after_create :create_cart
 
@@ -13,7 +14,7 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
     if cart.id == nil
       errors.add(:create_cart, "oh oh something wrong")
-    end 
+    end
   end
 
 end
