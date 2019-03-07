@@ -9,27 +9,27 @@
 
    <div class="form-group">
          <%= label_tag 'Title' %>
-         <%= text_field_tag 'title', @title, class: "form-control "  %>
+         <%= text_field_tag 'Titre', @title, class: "form-control "  %>
    </div>
 
    <div class="form-group">
          <%= label_tag 'Description' %>
-         <%= text_area_tag 'description', @description, class: "form-control "  %>
+         <%= text_area_tag 'Description', @description, class: "form-control "  %>
    </div>
 
    <div class="form-group">
          <%= label_tag 'Price' %>
-         <%= text_field_tag 'price', @price, class: "form-control "  %>
+         <%= text_field_tag 'Prix', @price, class: "form-control "  %>
    </div>
 
    <div class="form">
-         <%= label_tag 'picture' %>
+         <%= label_tag 'Image' %>
          <%= text_area_tag 'image_url', @image_url, class: "form-control" %>
    </div><br>
 
 
    <div class="form-group">
-         <%= submit_tag "Create item", class: 'btn btn-primary btn-submit' %>
+         <%= submit_tag "Creer", class: 'btn btn-primary btn-submit' %>
    </div>
 
    <% end %>

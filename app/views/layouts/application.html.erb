@@ -12,15 +12,18 @@
     <%= audio_tag "whats_new_pussycat.mp3" , id:"sound_tom_jones" , class: "audio-to-play"  , autoplay: true %>
   </head>
 
-  <%= render "layouts/navbar"%>
+
 
   <body>
+    <%= render "layouts/navbar"%>
     <%= yield %>
+    <%= render "layouts/footer"%>
   </body>
+
   <script>
     var audio = document.getElementById("sound_tom_jones");
-    audio.volume = 0.3;
+    audio.volume = 0.0;
   </script>
-  <%= render "layouts/footer"%>
+
 
 </html>
