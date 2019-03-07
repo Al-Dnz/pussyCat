@@ -5,10 +5,8 @@ before_action :authenticate_user, only: [ :index , :update , :delete_item]
   	@cart_item = CartItem.new(item_id: params[:id], cart_id: current_user.cart.id)
   	if @cart_item.save
   		flash[:notice] = "add cart successfully"
-   		redirect_to request.referrer
   	else
   		flash[:notice] = "add cart fail"
-  		redirect_to request.referrer
   	end
   end
 
@@ -21,18 +19,14 @@ before_action :authenticate_user, only: [ :index , :update , :delete_item]
     CartItem.where(cart_id: @cart.id).each do |cart_item|
         @items << Item.find(cart_item.item_id)
     end
-
     @total =0
     @items.each { |item| @total+=item.price }
   end
 
+
   def destroy
   end
 
-  # def delete_item
-  #   CartItem.delete(params[:id])
-  #   redirect_to request.referrer
-  # end
 
   private
 

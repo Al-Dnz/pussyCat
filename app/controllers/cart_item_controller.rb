@@ -21,23 +21,15 @@ class CartItemController < ApplicationController
   end
 
   def show
-    @cart_item = CartItem.find(params[:id])
+     @cart_item = CartItem.find(params[:id])
+   end
 
-    puts  "tried ********************$"
-  end
+   def destroy
 
-  def destroy
-    puts  "tried  delete ********************$"
-    @cart_item = CartItem.find(params[:id])
-    if @cart_item.destroy
-        respond_to do |format|
-          format.html {redirect_to request.referrer}
-          format.js
-        end
-        else
-      redirect_to root_path
-      end
-  end
+     @cart_item = CartItem.find(params[:id])
+     @cart_item.destroy
+
+   end
 
   private
 
