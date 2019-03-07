@@ -28,6 +28,7 @@ class CartItemController < ApplicationController
 
      @cart_item = CartItem.find(params[:id])
      @cart_item.destroy
+     redirect_to request.referrer
 
    end
 

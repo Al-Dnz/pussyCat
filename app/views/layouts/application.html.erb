@@ -9,15 +9,14 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag asset_path('cat_icon.png') %>
 
-<<<<<<< HEAD
-    <%= audio_tag "miaou.wav" , id:"sound_miaou" , class: "audio-to-play"  , autoplay: true %>
-=======
->>>>>>> delivery/css
+
+
   </head>
 
 
 
   <body>
+  
     <%= render "layouts/navbar"%>
 
     <% if current_user && current_user.admin == true %>
