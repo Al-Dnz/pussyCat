@@ -13,8 +13,7 @@ RSpec.describe Order, type: :model do
     context "assosiations" do
       it do
        should have_many(:items).
-       through(:item_orders).
-       class_name('Order')
+       through(:item_orders)
       end
 
 
