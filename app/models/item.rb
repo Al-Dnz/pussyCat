@@ -5,8 +5,9 @@ class Item < ApplicationRecord
   validates :image_url, presence: true
   has_many :cart_items
   has_many :item_orders
-  has_many :carts, through: :cart_items
-  has_many :orders, through: :item_orders
+  has_many :carts, through: :cart_items, class_name: 'Item'
+  has_many :orders, through: :item_orders, class_name: 'Item'
+
 
 
 end
