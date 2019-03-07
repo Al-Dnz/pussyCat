@@ -9,4 +9,5 @@ class Item < ApplicationRecord
   has_many :orders, through: :item_orders
   has_one_attached :cat
 
+
 end

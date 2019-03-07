@@ -23,15 +23,22 @@
         <ul class="list-inline mb-0">
           <li class="dropdown-toggle mr-2">
             <a class="navbar-link" href="#">
-              <i class="fe-icon-user"></i>Login or Create account</a>
+              <%if current_user%>
+              <i class="fe-icon-user"></i><%= current_user.email%>
+              <% else%>
+              <i class="fe-icon-user"></i>S'inscrire ou se connecter
+              <% end %>
+              </a>
+
             <div class="dropdown-menu right-aligned p-3 text-center" style="min-width: 200px;">
-              <p class="text-sm opacity-70">Sign in to your account or register new one to have full control over your orders, receive bonuses and more.</p>
+
               <% if current_user %>
-                <p><%= link_to "sign out", destroy_user_session_path, method: "delete", class: "btn btn-primary btn-sm btn-block" %></p>
+                <p><%= link_to "Deconnexion", destroy_user_session_path, method: "delete", class: "btn btn-primary btn-sm btn-block" %></p>
               <% else %>
-                <p><%= link_to "Sign in", new_user_session_path, class: "btn btn-primary btn-sm btn-block" %></p>
-                <p class="text-sm text-muted mt-3 mb-0">New customer?
-                <%= link_to "register", new_user_registration_path %></p>
+              <p class="text-sm opacity-70">Vous devez vous inscrire ou vous connecter pour avoir accès au panier</p>
+                <p><%= link_to "Connexion", new_user_session_path, class: "btn btn-primary btn-sm btn-block" %></p>
+                <p class="text-sm text-muted mt-3 mb-0">Nouveau sur le PussyCatShop ?
+                <%= link_to "Inscription", new_user_registration_path %></p>
               <% end %>
             </div>
           </li>
@@ -49,49 +56,24 @@
           <!-- Main Menu-->
           <ul class="navbar-nav d-none d-lg-block">
             <!-- Home-->
-            <li class="nav-item mega-dropdown-toggle active"><%= link_to "PUSSY SHOP", root_path, class: "nav-link text-accent"%>
+            <li class="nav-item mega-dropdown-toggle active"><%= link_to "THE PUSSYCAT SHOP", root_path, class: "nav-link text-accent"%>
               <li class="nav-item mega-dropdown-toggle active"><%= link_to "PANIER", cart_index_path,  class: "nav-link text-accent"%>
               <!-- shop -->
-              <li class="nav-item mega-dropdown-toggle">
-                <a class="nav-link  text-accent" href="#">Shop</a>
-                <div class="dropdown-menu mega-dropdown">
-                  <div class="d-flex">
-                    <div class="column">
-                      <div class="widget widget-custom-menu">
-                        <h4 class="widget-title">Shop Layouts</h4>
-                        <ul>
-                          <li>
-                            <a href="#">example column 1</a>
-                          </li>
 
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="column">
-                      <div class="widget widget-custom-menu">
-                        <h4 class="widget-title">Shop Pages</h4>
-                        <ul>
-                          <li>
-                            <a href="#">example column 2</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
               <!-- Account-->
+              <% if current_user %>
               <li class="nav-item dropdown-toggle">
-                <a class="nav-link text-accent" href="account-orders.html">Account</a>
+                <a class="nav-link text-accent" href="#">Votre compte</a>
                 <ul class="dropdown-menu">
-                  <% if current_user %>
-                  <li class="dropdown-item"><%= link_to "Your profile", user_path(current_user.id) %></li>
-                  <% else %>
-                  <% end %>
-                  <li class="dropdown-item"><%= link_to "Login / Register", new_user_session_path %></li>
-                  <li class="dropdown-item"><%= link_to "Password Recovery", new_user_password_path %></li>
+
+                  <li class="dropdown-item"><%= link_to "Profil ", user_path(current_user.id) %></li>
+
+
+
+                  <li class="dropdown-item"><%= link_to "Mot de passe oublié ?", new_user_password_path %></li>
                 </ul>
               </li>
+              <%end%>
 
             </div>
           </div>

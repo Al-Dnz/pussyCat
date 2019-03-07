@@ -4,6 +4,7 @@ require "rails_helper"
 RSpec.describe Item, type: :model do
 
   before(:each) do
+    @user = build(:user)
     @item = build(:item)
   end
 
@@ -23,4 +24,14 @@ RSpec.describe Item, type: :model do
          expect(@item.price > 0).to eq(true)
        end
 
+       context "assosiations" do
+         it do
+          should have_many(:carts).
+          through(:cart_items)
+         end
+        it do
+          should have_many(:orders).
+          through(:item_orders)
+       end
+     end
 end

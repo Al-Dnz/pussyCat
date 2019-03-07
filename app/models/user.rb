@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   def create_cart
     cart = Cart.create(user_id: self.id)
+    UserMailer.welcome_email(self).deliver_now
     if cart.id == nil
       errors.add(:create_cart, "oh oh something wrong")
     end

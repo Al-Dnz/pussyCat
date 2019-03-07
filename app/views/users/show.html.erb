@@ -12,15 +12,15 @@
 <h4 class="card-title"><%= @user.email %></h4>
 </div>
 
-    <p class="card-text">This is your profile page, you can check your information and your previous orders.</p>
+    <p class="card-text">Vous êtes sur votre profil PussyCatShop , vous pouvez mettre à jour vos informations et checker vos anciennes commandes</p>
   </div>
   <ul class="list-group list-group-flush">
-    <a href="<%=edit_user_registration_path%>"><li class="list-group-item active">Edit your profile</li></a>
-    <a href="<%=new_user_avatar_path(@user.id)%>"><li class="list-group-item active">Change your avatar</li></a>
-    <a href="<%=cart_index_path%>"><li class="list-group-item active">Check your cart</li></a>
-    <% if current_user.admin? %>
-    <a href="<%=new_admin_item_path%>"><li class="list-group-item active">Add new item</li></a>
-    <% else %>
+    <a href="<%= edit_user_registration_path %>"><li class="list-group-item active">  Modifier votre profil</li></a>
+    <a href="<%= new_user_avatar_path(@user.id) %>"><li class="list-group-item active">Modifier votre avatar</li></a>
+    <a href="<%=cart_index_path%>"><li class="list-group-item active">Votre panier</li></a>
+    <% if  current_user && current_user.admin == true %>
+    <a href="<%=new_admin_item_path%>"><li class="list-group-item active ">Ajouter un article (ADMIN ONLY)</li></a>
+    <a href="<%=users_path%>"><li class="list-group-item active ">Table des utilisateurs (ADMIN ONLY)</li></a>
     <% end %>
 
 
@@ -34,9 +34,9 @@
     <table class="table table-hover">
       <thead>
         <tr>
-          <th>#Order</th>
-          <th>Number of item</th>
-          <th>Date Purchased</th>
+          <th>#Commande</th>
+          <th>Nombre d'articles</th>
+          <th>Date de commande</th>
           <th>Status</th>
           <th>Total</th>
         </tr>
@@ -47,7 +47,7 @@
           <th scope="row"><a href="<%=order_path(order.id)%>"><%= order.id %></a></th>
             <td><%= order.items.count %></td>
           <td><%= order.created_at.strftime("%m/%d/%Y") %></td>
-          <td><span class="badge badge-success m-0">Delivered</span></td>
+          <td><span class="badge badge-success m-0">Envoyé</span></td>
           <% @total = 0 %>
           <% order.items.each { |item| @total+=item.price } %>
           <td><%= @total %>€</td>

@@ -1,0 +1,26 @@
+<h1>Merci pour ton achat <%= @user.email %> sur <% @url %></h1>
+<br>
+<h3>Bien joué , ta commande a bien été effectuée ;)</h3>
+<br>
+<h3>Tu as commandé :</h3>
+
+<% @user.cart.items.each do |item| %>
+<h2><%=item.title%></h2>
+<br>
+ <img src="<%= item.image_url %>">
+<p>
+  <br>
+  <%= item.title %>
+  <br>
+  <%= item.price%>
+  <br>
+  <%= item.description%>
+</p>
+<br>
+<% end %>
+
+
+<h3>Merci et à bientôt</h3>
+<h4>sur</h4>
+<h1>The PussyCat Shop</h1>
+>>>>>>> 5bb871e87ec57d68b93fff16e7ab16eb8a5671f5

@@ -17,7 +17,10 @@
          currency: 'eur',
          })
 
-
+     UserMailer.validate_buy_stripe(current_user).deliver_now
+     User.where("admin", "true").each do |admin|
+       UserMailer.admin_validate_buy_stripe(current_user, admin).deliver_now
+     end
 
      order = Order.create(user_id: current_user.id, stripe_customer_id: customer.id)
      current_user.cart.items.each do |item|
@@ -28,13 +31,16 @@
      end
      redirect_to request.referrer
 
- rescue Stripe::CardError => e
-   flash[:error] = e.message
-   redirect_to new_charge_path
- end
+   rescue Stripe::CardError => e
+     flash[:error] = e.message
+     redirect_to new_charge_path
+
+   end
 
    def show
      @order = Order.find(params["id"])
    end
 
- end
+
+end
+

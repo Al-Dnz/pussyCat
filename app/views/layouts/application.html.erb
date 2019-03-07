@@ -7,14 +7,36 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag asset_path('cat_icon.png') %>
+
+    <%= audio_tag "miaou" , id:"sound_miaou" , class: "audio-to-play"  , autoplay: true %>
   </head>
 
-  <%= render "layouts/navbar"%>
+
 
   <body>
+    <%= render "layouts/navbar"%>
+
+    <% if current_user && current_user.admin == true %>
+    <nav class="navbar navbar-light bg-info">
+      <span class="navbar-brand mb-0 h1 ">MODE ADMIN : <%=current_user.email%></span>
+    </nav>
+    <br>
+    <% end %>
+
     <%= yield %>
+    <%= render "layouts/footer"%>
+
+
+
   </body>
 
-  <%= render "layouts/footer"%>
+  <script>
+    var audio = document.getElementById("sound_miaou");
+    audio.volume = 0.3;
+  </script>
+
+
+
 
 </html>
